@@ -11,8 +11,8 @@
 
 resource "azurerm_log_analytics_workspace" "Terra-OMSWorkspace-ProjetP" {
   name                = "${var.OMSworkspace}"
-  location            = "${azurerm_resource_group.Terra-RG-Stan1.location}"
-  resource_group_name = "${azurerm_resource_group.Terra-RG-Stan1.name}"
+  location            = "${azurerm_resource_group.Terra-RG.location}"
+  resource_group_name = "${azurerm_resource_group.Terra-RG.name}"
   # Possible values : PerNode, Standard, Standalone
   # Standalone = Pricing per Gb, PerNode = OMS licence 
   # More info : https://azure.microsoft.com/en-us/pricing/details/log-analytics/

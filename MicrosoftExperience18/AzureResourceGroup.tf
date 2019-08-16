@@ -8,7 +8,7 @@
 
 # Azure ressource group
 # Resource Groupe Azure
-resource "azurerm_resource_group" "Terra-RG-Stan1" {
+resource "azurerm_resource_group" "Terra-RG" {
   name     = "${var.RessourceGroup}"
   location = "${var.AzureRegion}"
 }

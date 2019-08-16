@@ -11,10 +11,10 @@
 
 # Cluster AKS
 # AKS Cluster
-resource "azurerm_kubernetes_cluster" "Terra-AKS-Stan1" {
+resource "azurerm_kubernetes_cluster" "Terra-AKS" {
   name                   = "${var.AKS-Name}"
   location               = "${var.AzureRegion}"
-  resource_group_name    = "${azurerm_resource_group.Terra-RG-Stan1.name}"
+  resource_group_name    = "${azurerm_resource_group.Terra-RG.name}"
   kubernetes_version     = "${var.KubernetesVersion}"
   dns_prefix             = "${var.DNSPrefix}"
   
@@ -22,7 +22,7 @@ resource "azurerm_kubernetes_cluster" "Terra-AKS-Stan1" {
     admin_username = "${var.AdminName}"
 
     ssh_key {
-      key_data = "${data.azurerm_key_vault_secret.Terra-Datasource-cleSSH.value}"
+      key_data = "${var.SSHKeyAdmin}"
     }
   }
 
@@ -53,7 +53,7 @@ addon_profile {
 
 # Output AKS
 output "id" {
-    value = "${azurerm_kubernetes_cluster.Terra-AKS-Stan1.id}"
+    value = "${azurerm_kubernetes_cluster.Terra-AKS.id}"
 }
 
 # output "kube_config" {
@@ -73,5 +73,5 @@ output "id" {
 # }
 
 output "host" {
-  value = "${azurerm_kubernetes_cluster.Terra-AKS-Stan1.kube_config.0.host}"
+  value = "${azurerm_kubernetes_cluster.Terra-AKS.kube_config.0.host}"
 }

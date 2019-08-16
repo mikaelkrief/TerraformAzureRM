@@ -40,10 +40,10 @@ variable "AdminName" {
 # SSH public key
 # it's still better to use an SSH key stored as a secret in an Azure KeyVault and a Datasource
 # please look here : https://www.terraform.io/docs/providers/azurerm/d/key_vault_secret.html 
-# variable "SSHKeyAdmin" {
-#   type    = "string"
-#   # default = "ssh......."
-# }
+ variable "SSHKeyAdmin" {
+   type    = "string"
+   default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQClspfw7V+U12KdN/Pe3BFIaXPnqeiA60kSDp7pPRqkVFs/8SB/HO05Lx+p2GhnP2XU+ZejB/7PYUuxobpa6GozymzoRpn3eg+rEyyiySNSYsUA4l70MnybISpn2fKc/OQImb3gylPqxYEBR3Qd9S7lKEVD3DCj26t9poxXzwPrVlmWApvLyroJ3ASIiLUPyPWbsB81vf/PNdEl3mCVny3u1cUBEt0+EWXz7AVowr4fnX4KNw9sZcSASFhd0JBDWwbi/fxl/mGTxh1yErabhn4AoezNpGqyHSReIGaojybvSg6HiUbF/s97vNZczlhXgkbjFL0R4l3aG9R/GxZFlZbb krief_mikael@hotmail.com"
+ }
 
 # Taille des noeuds AKS
 # AKS node VM Size
@@ -70,11 +70,13 @@ variable "Tag-environnement" {
 # Variable Service Principal clientID
 variable "SPNClientID" {
   type    = "string"
+  default = "b37561f6-5f97-4159-ac96-dc0d87719737"
 }
 
 # Variable Service Principal clientSecret
 variable "SPNClientSecret" {
   type    = "string"
+  default = "OxCV/9IqosAH/anlSJpkkQyZ3cP+370u63pzZ/1wl6g="
 }
 
 
